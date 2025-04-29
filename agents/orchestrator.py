@@ -2,7 +2,8 @@ from agents.code_writer_agent import CodeWriterAgent
 from agents.reviewer_agent import ReviewerAgent
 from agents.tester_agent import TesterAgent
 from agents.architect_agent import ArchitectAgent
-import loguru as logger
+from agents.code_fixer_agent import CodeFixerAgent
+from loguru import logger
 
 class Orchestrator:
     def __init__(self):
@@ -10,6 +11,7 @@ class Orchestrator:
         self.reviewer = ReviewerAgent()
         self.tester = TesterAgent()
         self.architect = ArchitectAgent()
+        self.fixer = CodeFixerAgent()
 
     def start_project(self, task):
         logger.info(f"🚀 Starting Proactive Copilot System for task: {task}")
